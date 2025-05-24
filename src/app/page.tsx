@@ -64,18 +64,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-indigo-600 text-white py-8">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center px-6">
-          <p className="mb-4 md:mb-0">&copy; 2025 AI Fintech Blog. All rights reserved.</p>
-          <div className="space-x-6">
-            <Link href="https://github.com/zerizer2025/ai-fintech-blog" target="_blank" className="hover:underline">GitHub</Link>
-            <Link href="https://twitter.com/zerizer2025" target="_blank" className="hover:underline">Twitter</Link>
-            <Link href="/privacy" className="hover:underline">Privacy</Link>
-            <Link href="/terms" className="hover:underline">Terms</Link>
-          </div>
-        </div>
-      </footer>
+
+
     </main>
   );
 }
