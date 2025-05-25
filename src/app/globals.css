@@ -1,13 +1,10 @@
-/* globals.css */
-
-/* Font setup (if using Inter from Google Fonts) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-/* Tailwind base styles */
+/* ✅ ثم تأتي بعدها أوامر Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom global styles */
+/* ✅ ثم تبدأ بالتنسيق المخصص */
 body {
   @apply font-sans bg-white text-gray-800 antialiased;
   font-family: 'Inter', sans-serif;

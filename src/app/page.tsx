@@ -1,25 +1,17 @@
+// src/app/page.tsx
 import Link from 'next/link';
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main className="font-sans">
-      {/* Header */}
-      <header className="bg-white shadow-md">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-indigo-600">AI Fintech Blog</h1>
-          <nav className="space-x-6 text-gray-700">
-            <Link href="/" className="hover:text-indigo-600">Home</Link>
-            <Link href="/about" className="hover:text-indigo-600">About</Link>
-            <Link href="/contact" className="hover:text-indigo-600">Contact</Link>
-          </nav>
-        </div>
-      </header>
-
+      
       {/* Hero Section */}
       <section className="bg-indigo-50 py-20 text-center px-6">
         <h2 className="text-4xl font-bold text-indigo-700 mb-4">Explore the Future of Finance</h2>
         <p className="text-lg text-gray-600 mb-6">Discover the latest AI tools transforming the fintech industry.</p>
-        <a href="#blog" className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 transition">Start Reading</a>
+        <a href="#blog" className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 transition">
+          Start Reading
+        </a>
       </section>
 
       {/* Features */}
@@ -45,28 +37,44 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">Latest Articles</h2>
           <div className="grid gap-6 md:grid-cols-3">
-            <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-              <h3 className="text-xl font-bold text-indigo-700">Top 10 AI Tools for Fintech 2025</h3>
-              <p className="text-gray-600 mt-2">A curated list of the most promising AI tools revolutionizing finance.</p>
-              <Link href="#" className="text-indigo-600 mt-4 inline-block hover:underline">Read More</Link>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-              <h3 className="text-xl font-bold text-indigo-700">How AI is Disrupting Traditional Banking</h3>
-              <p className="text-gray-600 mt-2">Explore how artificial intelligence is changing the financial industry forever.</p>
-              <Link href="#" className="text-indigo-600 mt-4 inline-block hover:underline">Read More</Link>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-              <h3 className="text-xl font-bold text-indigo-700">Getting Started with Fintech Apps</h3>
-              <p className="text-gray-600 mt-2">A beginner’s guide to building and using fintech-powered applications.</p>
-              <Link href="#" className="text-indigo-600 mt-4 inline-block hover:underline">Read More</Link>
-            </div>
+            <ArticleCard
+              title="Top 10 AI Tools for Fintech 2025"
+              description="A curated list of the most promising AI tools revolutionizing finance."
+              href="#"
+            />
+            <ArticleCard
+              title="How AI is Disrupting Traditional Banking"
+              description="Explore how artificial intelligence is changing the financial industry forever."
+              href="#"
+            />
+            <ArticleCard
+              title="Getting Started with Fintech Apps"
+              description="A beginner’s guide to building and using fintech-powered applications."
+              href="#"
+            />
           </div>
         </div>
       </section>
-
-
-
     </main>
   );
 }
 
+// 👇 يمكننا إنشاء هذا المكون لزيادة تنظيم الصفحة
+
+type ArticleCardProps = {
+  title: string;
+  description: string;
+  href: string;
+};
+
+function ArticleCard({ title, description, href }: ArticleCardProps) {
+  return (
+    <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+      <h3 className="text-xl font-bold text-indigo-700">{title}</h3>
+      <p className="text-gray-600 mt-2">{description}</p>
+      <Link href={href} className="text-indigo-600 mt-4 inline-block hover:underline">
+        Read More
+      </Link>
+    </div>
+  );
+}
