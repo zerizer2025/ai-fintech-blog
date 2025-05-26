@@ -1,34 +1,37 @@
-// 📁 src/app/articles/[slug]/page.tsx
-import { notFound } from 'next/navigation';
+// src/app/articles/[slug]/page.tsx
+import { notFound } from "next/navigation";
 
-interface Params {
+type Article = {
   slug: string;
-}
+  title: string;
+  content: string;
+};
 
-// بيانات تجريبية
-const articles = [
+// مثال بيانات تجريبية
+const articles: Article[] = [
   {
-    slug: 'ai-in-banking',
-    title: 'AI in Banking',
-    content: 'This is a full article about AI revolutionizing banking.',
+    slug: "ai-in-banking",
+    title: "How AI is Disrupting Traditional Banking",
+    content: "AI is transforming the banking industry by automating processes, improving customer service, and reducing costs.",
   },
   {
-    slug: 'fintech-tools',
-    title: 'Top Fintech Tools',
-    content: 'Here is a list of AI-powered fintech tools.',
+    slug: "top-10-ai-tools",
+    title: "Top 10 AI Tools for Fintech 2025",
+    content: "Here’s a curated list of tools leading the AI revolution in financial services.",
   },
 ];
 
-export default function ArticlePage({ params }: { params: Params }) {
+export default async function ArticlePage({ params }: { params: { slug: string } }) {
   const article = articles.find((a) => a.slug === params.slug);
 
-  if (!article) return notFound();
+  if (!article) {
+    notFound(); // عرض صفحة 404 إن لم يتم العثور على المقال
+  }
 
   return (
-    <div className="max-w-3xl mx-auto py-8 px-4">
-      <h1 className="text-3xl font-bold mb-4">{article.title}</h1>
-      <p className="text-gray-700 dark:text-gray-300">{article.content}</p>
+    <div className="max-w-3xl mx-auto p-8">
+      <h1 className="text-3xl font-bold text-indigo-700 mb-4">{article.title}</h1>
+      <p className="text-gray-700">{article.content}</p>
     </div>
   );
 }
-
