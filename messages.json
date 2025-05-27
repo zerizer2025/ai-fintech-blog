@@ -4,5 +4,11 @@
     "email": "amayacine@gmail.com",
     "message": "hello how are you",
     "timestamp": "2025-05-26T23:18:04.334Z"
+  },
+  {
+    "name": "Yacine",
+    "email": "wejdaneachouri@gmail.com",
+    "message": "ممتاز! بما أنك تستخدم Markdown لمقالات مدونتك، يمكنك إنشاء API داخلي مخصص لحفظ رسائل صفحة التواصل (Contact) في قاعدة بيانات خفيفة مثل SQLite أو حتى ملف JSON/Markdown منفصل (لمن لا يريد قاعدة بيانات كاملة). إليك مثالاً كاملاً باستخدام API Route في Next.js لحفظ الرسائل في ملف:",
+    "timestamp": "2025-05-27T12:45:41.325Z"
   }
 ]

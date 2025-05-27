@@ -15,7 +15,7 @@ interface Article {
     {
       slug: 'ai-in-banking',
       title: 'How AI is Disrupting Traditional Banking',
-      content: 'AI is revolutionizing banking through automation, fraud detection, and personalized experiences...',
+      content: 'https://www.google.com/',
     },
     {
       slug: 'getting-started-fintech',
