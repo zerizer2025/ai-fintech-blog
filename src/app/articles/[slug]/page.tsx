@@ -1,27 +1,35 @@
 // 📁 src/app/articles/[slug]/page.tsx
 
-interface Article {
-    slug: string;
-    title: string;
-    content: string;
-  }
-  
+type Article = {
+  slug: string;
+  title: string;
+  content: string;
+  image: string;
+  publishedAt: string;
+};  
   const articles: Article[] = [
     {
-      slug: 'top-10-ai-tools',
-      title: 'Top 10 AI Tools for Fintech 2025',
-      content: 'Here is a detailed look at the top AI tools transforming fintech in 2025...',
-    },
-    {
-      slug: 'ai-in-banking',
-      title: 'How AI is Disrupting Traditional Banking',
-      content: 'https://www.google.com/',
-    },
-    {
-      slug: 'getting-started-fintech',
-      title: 'Getting Started with Fintech Apps',
-      content: 'Fintech apps are apps that use modern technology to offer financial services...',
-    },
+    slug: 'top-10-ai-tools',
+    title: 'Top 10 AI Tools for Fintech 2025',
+    content: 'A curated list of the most promising AI tools revolutionizing finance.',
+    image: '/images/ai-tools.jpg',
+    publishedAt: '2025-05-15',
+   },
+   {
+    slug: 'ai-in-banking',
+    title: 'How AI is Disrupting Traditional Banking',
+    content: 'Explore how artificial intelligence is changing the financial industry forever.',
+    image: '/images/ai-banking.jpg',
+    publishedAt: '2025-05-12',
+   },
+   {
+    slug: 'getting-started-fintech',
+    title: 'Getting Started with Fintech Apps',
+    content: 'A beginner’s guide to building and using fintech-powered applications.',
+    image: '/images/fintech-start.jpg',
+    publishedAt: '2025-05-10',
+   },
+
   ];
   
   export default function ArticlePage({ params }: { params: { slug: string } }) {

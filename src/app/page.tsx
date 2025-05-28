@@ -1,22 +1,30 @@
 import Link from 'next/link';
+import ArticleCard from "./components/ArticleCard";
 
 const articles = [
   {
     slug: 'top-10-ai-tools',
     title: 'Top 10 AI Tools for Fintech 2025',
     description: 'A curated list of the most promising AI tools revolutionizing finance.',
+    image: '/images/ai-tools.jpg',
+    publishedAt: '2025-05-15',
   },
   {
     slug: 'ai-in-banking',
     title: 'How AI is Disrupting Traditional Banking',
     description: 'Explore how artificial intelligence is changing the financial industry forever.',
+    image: '/images/ai-banking.jpg',
+    publishedAt: '2025-05-12',
   },
   {
     slug: 'getting-started-fintech',
     title: 'Getting Started with Fintech Apps',
     description: 'A beginner’s guide to building and using fintech-powered applications.',
+    image: '/images/fintech-start.jpg',
+    publishedAt: '2025-05-10',
   },
 ];
+
 
 export default function HomePage() {
   return (
@@ -50,6 +58,8 @@ export default function HomePage() {
                 title={article.title}
                 description={article.description}
                 slug={article.slug}
+                image={article.image}
+                publishedAt={article.publishedAt}
               />
             ))}
           </div>
@@ -74,17 +84,3 @@ type ArticleCardProps = {
   slug: string;
 };
 
-function ArticleCard({ title, description, slug }: ArticleCardProps) {
-  return (
-    <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-      <h3 className="text-xl font-bold text-indigo-700">{title}</h3>
-      <p className="text-gray-600 mt-2">{description}</p>
-      <Link
-        href={`/articles/${slug}`}
-        className="text-indigo-600 mt-4 inline-block hover:underline"
-      >
-        Read More
-      </Link>
-    </div>
-  );
-}
