@@ -17,7 +17,7 @@ interface ArticlePageProps {
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
   await connectToDatabase();
-  const article = await Article.findOne({ slug: params.slug }).lean() as ArticleType;
+  const article = await Article.findOne({ slug: params.slug }).lean<ArticleType>();
 
   if (!article) {
     notFound();

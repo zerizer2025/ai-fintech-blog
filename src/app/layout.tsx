@@ -1,34 +1,29 @@
 // src/app/layout.tsx
-
 import './globals.css';
 import { Inter } from 'next/font/google';
-import { ReactNode } from 'react';
-import { ThemeProvider } from './theme-provider';
 import HeaderSwitcher from './components/HeaderSwitcher';
+import { Providers } from './providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'AI Fintech Blog',
-  description: 'Explore AI-powered tools and insights in the fintech world.',
+  description: 'Exploring AI tools for the financial world.',
 };
 
-interface RootLayoutProps {
-  children: ReactNode;
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.className} bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {/* ✅ هيدر يتغير تلقائياً */}
+        <Providers>
           <HeaderSwitcher />
-
           <main className="min-h-screen px-4 py-6">{children}</main>
-
           <footer className="bg-indigo-600 text-white py-8">
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center px-6">
               <p className="mb-4 md:mb-0 text-white text-sm">
@@ -50,7 +45,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               </div>
             </div>
           </footer>
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

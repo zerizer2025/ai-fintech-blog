@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
-import ArticleCard from "./components/ArticleCard";
+import { useSession } from 'next-auth/react';
+import ArticleCard from './components/ArticleCard';
 
 const articles = [
   {
@@ -25,15 +28,21 @@ const articles = [
   },
 ];
 
-
 export default function HomePage() {
+  const { data: session } = useSession();
+
   return (
     <main className="font-sans">
       {/* Hero Section */}
       <section className="bg-indigo-50 py-20 text-center px-6">
         <h2 className="text-4xl font-bold text-indigo-700 mb-4">Explore the Future of Finance</h2>
-        <p className="text-lg text-gray-600 mb-6">Discover the latest AI tools transforming the fintech industry.</p>
-        <a href="#blog" className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 transition">
+        <p className="text-lg text-gray-600 mb-6">
+          Discover the latest AI tools transforming the fintech industry.
+        </p>
+        <a
+          href="#blog"
+          className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 transition"
+        >
           Start Reading
         </a>
       </section>
@@ -51,6 +60,19 @@ export default function HomePage() {
       <section id="blog" className="bg-gray-100 py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">Latest Articles</h2>
+
+          {/* ✅ زر إضافة المقالات (يظهر فقط للمستخدم المسجل) */}
+          {session?.user && (
+            <div className="flex justify-end mb-6">
+              <Link
+                href="/create"
+                className="bg-indigo-600 text-white px-4 py-2 rounded-lg shadow hover:bg-indigo-700 transition duration-200"
+              >
+                ➕ Add New Article
+              </Link>
+            </div>
+          )}
+
           <div className="grid gap-6 md:grid-cols-3">
             {articles.map((article) => (
               <ArticleCard
@@ -77,10 +99,3 @@ function Feature({ title, desc }: { title: string; desc: string }) {
     </div>
   );
 }
-
-type ArticleCardProps = {
-  title: string;
-  description: string;
-  slug: string;
-};
-
