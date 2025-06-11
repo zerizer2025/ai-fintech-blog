@@ -1,30 +1,16 @@
+// src/app/providers.tsx
 'use client';
 
 import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider } from './theme-provider';
 
-interface ProvidersProps {
-  children: React.ReactNode;
-  attribute?: string;
-  defaultTheme?: string;
-  enableSystem?: boolean;
-}
-
-export function Providers({
-  children,
-  attribute = 'class',
-  defaultTheme = 'system',
-  enableSystem = true,
-}: ProvidersProps) {
+export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <SessionProvider>
-      <ThemeProvider
-        attribute={attribute}
-        defaultTheme={defaultTheme}
-        enableSystem={enableSystem}
-      >
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         {children}
       </ThemeProvider>
     </SessionProvider>
   );
 }
+
